@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Tanokhi ♡</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #10090d;
+    color: #f7e9df;
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+}
+
+section {
+    min-height: 80vh;
+    padding: 100px 22px;
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background:
+    radial-gradient(circle, #64152f, #10090d 70%);
+}
+
+.eyebrow {
+    color: #d8bd8b;
+    letter-spacing: 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(50px, 10vw, 100px);
+    font-weight: normal;
+    margin: 25px 0;
+}
+
+h2 {
+    font-size: clamp(35px, 6vw, 55px);
+    font-weight: normal;
+    margin: 20px 0;
+}
+
+h1 span,
+h2 span {
+    color: #d69aaa;
+}
+
+p {
+    max-width: 650px;
+    margin: 20px auto;
+    color: #d7c5ca;
+    line-height: 1.9;
+}
+
+button {
+    background: linear-gradient(120deg, #64152f, #922447);
+    color: white;
+    border: 1px solid #d8bd8b;
+    padding: 15px 28px;
+    margin-top: 25px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px #92244766;
+}
+
+.divider {
+    height: 1px;
+    width: 70px;
+    background: #d8bd8b;
+    margin: 25px auto;
+}
+
+.big18 {
+    font-size: clamp(120px, 25vw, 200px);
+    color: #d8bd8b;
+    text-shadow: 0 0 40px #922447;
+    margin: 30px;
+}
+
+/* PHOTO GALLERY */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-top: 45px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #d8bd8b77;
+    background: #24101a;
+    padding: 8px;
+    transition: .4s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px #92244744;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    transition: .5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.04);
+}
+
+.photo-caption {
+    padding: 15px 5px;
+    color: #d8bd8b;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+/* LETTER */
+
+.envelope {
+    max-width: 600px;
+    margin: 35px auto;
+    padding: 45px 20px;
+
+    background: linear-gradient(145deg, #451329, #1b0d15);
+
+    border: 1px solid #d8bd8b;
+    cursor: pointer;
+}
+
+.letter {
+    display: none;
+    background: #f1e3d7;
+    color: #422431;
+    padding: 30px;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.letter p {
+    color: #593b45;
+}
+
+.letter.show {
+    display: block;
+    animation: reveal 1s ease;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    color: #c77b91;
+    animation: float 9s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+.signature {
+    color: #d69aaa;
+    font-style: italic;
+    font-size: 25px;
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    color: #d8bd8b;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width: 650px) {
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 400px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+</body>
+<audio id="bgMusic" loop>
+    <source src="music/birthday-song.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="toggleMusic()" id="musicBtn">
+    🎵 Play Music
+</button>
+
+</body>
+
+<!-- WELCOME -->
+
+<section class="hero">
+
+    <div class="eyebrow">
+        A LITTLE WORLD MADE FOR YOU
+    </div>
+
+    <h1>For <span>Tanokhi</span> ♡</h1>
+
+    <p>November 6 · Your Special Day (MY*) </p>
+
+    <button onclick="goTo('birthday')">
+        OPEN YOUR SURPRISE ♡
+    </button>
+
+</section>
+
+
+<!-- BIRTHDAY -->
+
+<section id="birthday">
+
+    <div class="eyebrow">
+        TODAY IS ALL ABOUT YOU
+    </div>
+
+    <h2>
+        Happy Birthday,<br>
+        <span>Tanokhi.</span>
+    </h2>
+
+    <div class="divider"></div>
+
+    <p>
+        Happy birthday, sweetheart.
+
+        I hope your day is filled with happiness,
+        beautiful memories, endless laughter
+        and everything your heart wishes for.
+    </p>
+
+</section>
+
+
+<!-- 18TH BIRTHDAY -->
+
+<section id="eighteen">
+
+    <div class="eyebrow">
+        A NEW CHAPTER BEGINS
+    </div>
+
+    <h2>Chapter <span>18</span></h2>
+
+    <div class="divider"></div>
+
+    <div class="big18">18</div>
+
+    <p>
+        omg ur 18 now , babe.
+
+        A new chapter, new dreams,
+        new opportunities and countless
+        beautiful memories waiting for you.
+
+        May you always have the courage
+        to chase your dreams and the happiness
+        you truly deserve.
+        I lovee uu soo muchh
+    </p>
+
+    <p class="signature">
+        Here's to your beautiful new beginning. ♡
+    </p>
+
+</section>
+
+
+<!-- OUR MEMORIES -->
+
+<section id="memories">
+
+    <div class="eyebrow">
+        .............
+    </div>
+
+    <h2>THE Prettiest GIRLL</h2>
+
+    <div class="divider"></div>
+
+    <p>
+        
+        Here are some pictures of the goat i lovee mostttt
+    </p>
+
+
+    <!-- PHOTO GALLERY -->
+
+    <div class="gallery">
+
+        <!-- PHOTO 1 -->
+
+        <div class="gallery-item">
+            <img src="photos/photo1.jpg" alt="Memory 1">
+            <div class="photo-caption"> THE CUTEST GIRL ♡</div>
+        </div>
+
+
+        <!-- PHOTO 2 -->
+
+        <div class="gallery-item">
+            <img src="photos/photo2.jpg" alt="Memory 2">
+            <div class="photo-caption">CUTIE</div>
+        </div>
+
+
+        <!-- PHOTO 3 -->
+
+        <div class="gallery-item">
+            <img src="photos/photo3.jpg" alt="Memory 3">
+            <div class="photo-caption">In 18 THE GORGEOUS</div>
+        </div>
+
+
+        <!-- PHOTO 4 -->
+
+        <div class="gallery-item">
+            <img src="photos/photo4.jpg" alt="Memory 4">
+            <div class="photo-caption">Prettiest Girl EVER</div>
+        </div>
+
+
+        <!-- PHOTO 5 -->
+
+        <div class="gallery-item">
+            <img src="photos/photo5.jpg" alt="Memory 5">
+            <div class="photo-caption">MINEE</div>
+        </div>
+
+
+        <!-- PHOTO 6 -->
+
+        <div class="gallery-item">
+            <img src="photos/photo6.jpg" alt="Memory 6">
+            <div class="photo-caption">MY QUEEN</div>
+        </div>
+
+
+        <!-- PHOTO 7 -->
+
+        <div class="gallery-item">
+            <img src="photos/photo7.jpg" alt="Memory 7">
+            <div class="photo-caption">....</div>
+        </div>
+
+
+        <!-- PHOTO 8 -->
+
+        <div class="gallery-item">
+            <img src="photos/photo8.jpg" alt="Memory 8">
+            <div class="photo-caption">......</div>
+        </div>
+
+
+        <!-- PHOTO 9 -->
+
+        <div class="gallery-item">
+            <img src="photos/photo9.jpg" alt="Memory 9">
+            <div class="photo-caption">Hand In Hand Alwaays</div>
+        </div>
+
+
+        <!-- PHOTO 10 -->
+
+        <div class="gallery-item">
+            <img src="photos/photo10.jpg" alt="Memory 10">
+            <div class="photo-caption">US ♡</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PERSONAL LETTER -->
+
+<section id="letter">
+
+    <div class="eyebrow">
+        A LETTER FOR YOU
+    </div>
+
+    <h2>Something from me</h2>
+
+    <div class="divider"></div>
+
+    <div class="envelope" onclick="openLetter()">
+
+        <h2>💌</h2>
+
+        <p>You've got a little letter, babe.</p>
+
+        <button>OPEN YOUR LETTER</button>
+
+    </div>
+
+    <div class="letter" id="myLetter">
+
+        <h2>Dear Tanokhi,</h2>
+
+        <p>
+            Happy 18th birthday, my sweetheart.
+             I hope you know how much happiness
+            you deserve.
+        </p>
+
+        <p>
+            I'm grateful for every memory
+            we've made, every little moment
+            and every smile along the way. its more than 1 year we two are together
+        </p>
+        <p>I wish I could wrap all the happiness 
+            in the world into one little 
+            present and give it to you today. 
+            You deserve to feel celebrated, 
+            appreciated, but thhe distance sucks, 
+            distance jokhhon thakbena tokhhon sure kache jeye
+            and genuinely happy 
+            not just on your birthday, but throughout the whole year.
+
+        </p>
+
+        <p>
+            As you enter this beautiful new chapter,
+            I wish you endless success, peace,
+            confidence and unforgettable experiences.
+        </p>
+
+        <p>
+            Keep dreaming, keep growing
+            and never stop being yourself.
+        </p>
+
+        <p>
+            You deserve a beautiful life
+            filled with beautiful things. (including me)
+        </p>
+        <p>I lovee youu soo muchh, alwaysss happyy thako babai, im alwayss withh u ,
+             and thankk uu to ur parents for makingg uu, thhen now ur my wifee
+
+        </p>
+
+        <p class="signature">
+            With all my love,<br>
+            your Yeash ♡
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL SURPRISE -->
+
+<section>
+
+    <div class="eyebrow">
+        ONE LAST THING
+    </div>
+
+    <h2>
+        Here's to you,<br>
+        <span>Tanokhi.</span>
+    </h2>
+
+    <div class="divider"></div>
+
+    <p>
+        Happy 18th birthday, babe.
+
+        May your future be as beautiful
+        as the dreams you carry. WITH ME
+    </p>
+
+    <h2>♡</h2>
+
+    <p class="signature">
+        Forever wishing you happiness
+    </p>
+
+    <button onclick="window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    })">
+        PRESS THE BUTTON AND WISH ANYTHING
+    </button>
+
+</section>
+
+
+<footer>
+
+    MADE WITH LOVE · YEASH ♡ TANOKHI
+
+    <br><br>
+
+    NOVEMBER 6
+
+</footer>
+
+
+<script>
+
+// SCROLL FUNCTION
+
+function goTo(id) {
+
+    document.getElementById(id)
+    .scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+// OPEN LETTER
+
+function openLetter() {
+
+    document.getElementById("myLetter")
+    .classList.toggle("show");
+
+}
+
+
+// FLOATING HEARTS
+
+for (let i = 0; i < 15; i++) {
+
+    let heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "♡";
+
+    heart.style.left = Math.random() * 100 + "%";
+
+    heart.style.animationDelay =
+    Math.random() * 9 + "s";
+
+    heart.style.fontSize =
+    (15 + Math.random() * 20) + "px";
+
+    document.body.appendChild(heart);
+
+}
+
+
+// ORIGINAL AMBIENT MUSIC
+
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        musicBtn.innerHTML = "⏸ Pause Music";
+    } else {
+        music.pause();
+        musicBtn.innerHTML = "🎵 Play Music";
+    }
+}
+
+</script>
+
+</body>
+</html>
